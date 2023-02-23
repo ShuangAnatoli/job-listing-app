@@ -15,20 +15,34 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('jobs', [
+        "heading" => "Latest Jobs",
+        "jobs" => [[
+            "id" => 1,
+            "title" => "Data Analyst",
+            "description" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam gravida est non elementum ultricies. Vestibulum eget mattis lorem, id condimentum dolor. Mauris sollicitudin consequat bibendum. Sed eget ante ac sapien blandit eleifend at sed odio. Quisque feugiat odio quis ligula vestibulum, sed tempor nisl sodales."
+        ],
+        [
+            "id" => 2,
+            "title" => "Data Scientist",
+            "description" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam gravida est non elementum ultricies. Vestibulum eget mattis lorem, id condimentum dolor. Mauris sollicitudin consequat bibendum. Sed eget ante ac sapien blandit eleifend at sed odio. Quisque feugiat odio quis ligula vestibulum, sed tempor nisl sodales."
+        ]   
+        ]
+    ]);
 });
 
-Route::get("/home", function(){
-    return response("<h1>Hello!</h1>", 200)
-    -> header("Content-type", "text/plain")
-    -> header("foo", "bar");
-});
+// Route::get("/home", function(){
+//     return response("<h1>Hello!</h1>", 200)
+//     -> header("Content-type", "text/plain")
+//     -> header("foo", "bar");
+// });
 
-Route::get("/posts/{id}", function($id){
-    ddd($id);
-    return response("Post". $id);
-})->where("id", '[0-9]+');
+// Route::get("/posts/{id}", function($id){
+//     ddd($id);
+//     return response("Post". $id);
+// })->where("id", '[0-9]+');
 
-Route::get("/search", function(Request $request){
-    dd($request);
-});
+// Route::get("/search", function(Request $request){
+//     return response($request->name . " " . $request->city);
+// });
+
