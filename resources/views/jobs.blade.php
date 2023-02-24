@@ -3,6 +3,8 @@
  <p>No listings found.</p>
 @endif
 @foreach($jobs as $job)
-    <h2>{{$job["title"]}}</h2>
+    <h2>
+        <a href="/jobs/{{$job["id"]}}">{{$job["title"]}}</a>
+    </h2>
     <p>{{$job["description"]}}</p>
 @endforeach

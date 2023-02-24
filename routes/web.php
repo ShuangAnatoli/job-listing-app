@@ -15,13 +15,20 @@ use App\Models\Job;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+//all listings
 Route::get('/', function () {
     return view('jobs', [
         "heading" => "Latest Jobs",
         "jobs" => Job::all()
     ]);
 });
+//single listings
+Route::get("/jobs/{id}",function($id){
+    return view("job",[
+        "job" => Job::find($id)
+    ]);
+});
+
 
 // Route::get("/home", function(){
 //     return response("<h1>Hello!</h1>", 200)

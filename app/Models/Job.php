@@ -16,5 +16,13 @@ class Job{
             ]   
         ];
 }
+    public static function find($id){
+        $jobs = self::all();
+        foreach($jobs as $job){
+            if($job["id"]==$id){
+                return $job;
+            }
+        }
+    }
 }
 ?>
